@@ -1,8 +1,6 @@
 $(document).on('turbolinks:load', function(){
 
-
   var address = $('#googleMap').attr('address');
-  console.log(address)
 
   $.ajax({
     url: 'https://maps.googleapis.com/maps/api/geocode/json?address='+address,
@@ -18,9 +16,7 @@ $(document).on('turbolinks:load', function(){
       zoom:14,
       mapTypeId:google.maps.MapTypeId.ROADMAP
     }
-console.log(mapProp)
     var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-console.log(map)
     var owner_address = new google.maps.LatLng(lat, lng);
 
     var marker = new google.maps.Marker({
@@ -28,10 +24,7 @@ console.log(map)
         map: map
       });
   };
-
   google.maps.event.addDomListener(window, 'load', initialize);
-
-
 });
 
 $(document).ready(function(){
@@ -40,8 +33,6 @@ $(document).ready(function(){
   $("html").on('click', 'a[href="#"]', function(e) {
     e.preventDefault();
     var i;
-
-    console.log("tab  alert");
 
     var tabContent = $(".tabContent");
     for (i = 0; i < tabContent.length; i++) {
